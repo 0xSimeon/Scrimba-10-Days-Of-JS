@@ -20,4 +20,22 @@ const sum = (...numbers) => {
 // example
 console.log(sum(1,5,6,9, 19)); 
 ```
+## Day 2 
+Return the longest strings in an array
 
+``` Javascript
+function allLongestStrings(array) {
+    // Create a copy of the array using the length of each string
+    const getLengths = array.map((string) => string.length);
+    // get the length of the longest string
+    const longestString = Math.max(...getLengths);
+    return array.filter((element) => {
+        // filter and get all elements that has same length as longest string
+        if (element.length === longestString) return element;
+    });
+
+    // Test
+    const testArray = ["aba", "aa", "ad", "vcd", "aba", "a"];
+allLongestStrings(testArray);
+}
+```
