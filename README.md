@@ -99,5 +99,5 @@ const array = [1, 2, 1];
 arrayReplace(array, 1, 3);
 
 // result
-[3, 2, 4];
+[3, 2, 3];
 ```

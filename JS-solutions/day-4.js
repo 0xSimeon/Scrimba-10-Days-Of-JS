@@ -5,7 +5,10 @@ function arrayReplace(array, elemToReplace, substitutionElem) {
     // just return the element if it's not the one to be matched.
     return element;
   });
+
+  // Or - using the tenary operator (One line approach)
+  // return array.map((element) => element === elemToReplace ? substitutionElem : element);
 }
 
 const array = [1, 2, 1];
-arrayReplace(array, 1, 3);
+console.log(arrayReplace(array, 1, 3));
