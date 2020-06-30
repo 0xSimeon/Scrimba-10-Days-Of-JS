@@ -109,16 +109,54 @@ Check for palindrome (Case-insensitive).
 
 ```javascript
 function caseInsensitivePalindrome(str) {
-  // reverse the passed string
-  const reversed = str.split('').reverse().join('').toLowerCase();
-  // return true if it's the same when reversed. otherwise, return false.
-  return str.toLowerCase() === reversed ? true : false;
+  // make the passed string caseless
+  const caselessString = str.toLowerCase();
+  
+
+  //! Refactored to a less expensive way.
+  // const reversed = str.split('').reverse().join('').toLowerCase();
+  // return caselessString === reversed;
+
+
+  // Using a reverse loop.
+  let reversedString = '';
+  for (let i = caselessString.length - 1; i >= 0; i--) {
+    reversedString += caselessString[i];
+  }
+  return caselessString === reversedString;
 }
 
 console.log(caseInsensitivePalindrome('AaBaa'));
 //result:
-  true
+true;
 console.log(caseInsensitivePalindrome('abac'));
 // result:
-  false
+false;
+```
+
+## Day 6
+
+Enclosing passed strings in parentheses.
+
+`see file`: [day-6.js](./JS-solutions/day-6.js)
+
+```javascript
+function encloseInBrackets(str) {
+  //* Method 1: Using regex (Passed the test: true);
+  //   const regex = /\w+/gi;
+  //   return str.replace(regex, `(${str})`);
+
+  //* Method 2: Using array methods (Passed the test: true but expensive);
+  //   const array = [...str];
+  //   array.push(')');
+  //   array.unshift('(');
+  //   return array.join('');
+
+  //* Method 3: Using template literals (Passed the test: true);
+  return `(${str})`;
+}
+
+console.log(encloseInBrackets('aakgjkh'));
+// result:
+(aakgjkh);
 ```
